@@ -1,4 +1,4 @@
-const Module = (() => {
+const app = (() => {
 
     var listBluePrints = []
 
@@ -22,7 +22,13 @@ const Module = (() => {
             $('#input').val(name);
         },
         setListBluePrintsByAuthor: authorName => {
-            apimock.getBlueprintsByAuthor(authorName, (req, resp) => {
+            $('#table tbody').empty();
+            $('#authorPoints').text("");
+            apimock.getBlueprintsByAuthor(authorName, (error, resp) => {
+                if (error != null){
+                    alert("Verificar datos");
+                    return;	
+                }
                 const newResult = [];
                 resp.map(book => {
                     const object = {};
@@ -33,12 +39,12 @@ const Module = (() => {
 
                 newResult.map(obj => {
                     $('#table > tbody:last')
-                        .append($(`<tr><td>${obj.name}</td><td>${obj.numPoints}</td></tr>`))
+                        .append($(`<tr><td>${obj.name}</td><td>${obj.numPoints}</td><td>Button Brooo</td></tr>`))
                 })
 
                 const totalPoints = Object.values(newResult).reduce((point, {numPoints}) => point + numPoints, 0)
 
-                $('#authorPoints').val(totalPoints);
+                $('#authorPoints').text(totalPoints);
             })
         }
     };
