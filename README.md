@@ -1,5 +1,10 @@
 
 ### Escuela Colombiana de Ingeniería
+
+### Integrantes
+1. Nikolas Bernal 
+2. Santiago Martínez
+
 ### Arquiecturas de Software
 
 ## Construción de un cliente 'grueso' con un API REST, HTML5, Javascript y CSS3. Parte I.
