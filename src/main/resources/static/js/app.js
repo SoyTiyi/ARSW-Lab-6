@@ -26,8 +26,9 @@ const app = (() => {
             }
             const points = data.points;
             var canvas = $('#canvas')[0];
-            if(canvas.getContext){
-                var ctx = canvas.getContext('2d'); 
+            canvas.width = canvas.width;
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
                 ctx.moveTo(points[0].x, points[0].y);
                 console.log(points[0].x, points[0].y);
                 for (var i = 1; i < points.length; i++) {
@@ -66,7 +67,7 @@ const app = (() => {
                         <tr>
                             <td>${obj.name}</td>
                             <td>${obj.numPoints}</td>
-                            <td><button>Draw</button></td>
+                            <td><button class="btn btn-primary">Draw</button></td>
                         </tr>`).on("click", "button", () => drawCanvas(obj.name, obj.author)));
                 })
 

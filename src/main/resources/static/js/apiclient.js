@@ -1,4 +1,4 @@
-const apiclient = (() => {
+var apiclient = (function () {
 
     return{
         getBlueprintsByAuthor: (author, callback) => {
@@ -7,7 +7,8 @@ const apiclient = (() => {
                 contentType: "application/json",
             });
             promise.then( data => {
-                callback(null, JSON.parse(data));
+                console.log(data);
+                callback(null, data);
             }).catch(error => {
                 callback(error, null);
             });
